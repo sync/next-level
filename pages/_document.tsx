@@ -62,13 +62,13 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <meta name="apple-mobile-web-app-title" content="Reddit" />
+          <meta name="apple-mobile-web-app-title" content="Next Level" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
           <meta name="name" content="next-level" />
-          <meta name="description" content="reddit pwa next.js" />
+          <meta name="description" content="next.js now.sh pwa" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#673AB7" />

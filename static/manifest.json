@@ -3,7 +3,7 @@
   "short_name": "next-level",
   "background_color": "#FFFFFF",
   "theme_color": "#673AB7",
-  "description": "reddit pwa next.js",
+  "description": "next.js now.sh pwa",
   "display": "standalone",
   "start_url": "/",
   "icons": [
