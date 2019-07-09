@@ -18,7 +18,7 @@ Ultra high performance progressive web application built with React and Next.js.
   - offline
   - install prompts on supported platforms
 - Server side rendering
-- Next.js (canary)
+- Next.js 9.x (canary)
 - Webpack 4.x
 - Babel 7.x
 - Now.sh 2.x
@@ -29,7 +29,7 @@ Ultra high performance progressive web application built with React and Next.js.
 - A production build is deployed from a merge to master
 - A staging build is deployed from a PR against master
 
-## Setting the project up locally
+## Setting up the project locally
 
 First of all make sure you are using node `10.15.3` (any node 10.x would also do) and latest yarn, you can always have a look at the `engines` section of the `package.json`. Why node 8.10. We are using Now.sh to make the app available online and underneath it's using AWS lambda and you have to use Node 8.
 
@@ -85,27 +85,53 @@ We are using [Github Actions](https://developer.github.com/actions/). You can al
 $ brew install nektos/tap/act
 ```
 
-## Commands
+### Local CI Commands
 
-```
+```sh
 # List the actions
-act -l
+$ act -l
 
 # Run the default (`push`) event:
-act
+$ act
 
 # Run a specific event:
-act pull-request
+$ act pull-request
 
 # Run a specific action:
-act -a test
+$ act -a test
 
 # Run in dry-run mode:
-act -n
+$ act -n
 
 # Run in reuse mode to save state:
-act -r
+$ act -r
 
 # Enable verbose-logging (can be used with any of the above commands)
-act -v
+$ act -v
+```
+
+## Next maintenance
+
+All the documenation is located here: [https://nextjs.org/docs/#setup](https://nextjs.org/docs/#setup)
+
+## Now maintenance
+
+All the documentation is located here: [https://zeit.co/docs](https://zeit.co/docs)
+
+```sh
+# Install
+$ curl -sfLS https://zeit.co/download.sh | sh
+```
+
+### Useful commands
+
+```sh
+# check all running instances
+$ now ls
+
+# check logs for a given instance
+$ now logs your-app.now.sh --all
+
+# check all alias (running instances to your-app.now.sh)
+$ now alias ls
 ```
