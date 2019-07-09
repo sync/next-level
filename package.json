@@ -39,6 +39,7 @@
     "@babel/core": "7.5.0",
     "@babel/plugin-proposal-class-properties": "7.5.0",
     "@babel/plugin-proposal-object-rest-spread": "7.5.2",
+    "@fullhuman/postcss-purgecss": "1.2.0",
     "@percy-io/percy-storybook": "2.1.0",
     "@storybook/addon-actions": "5.1.9",
     "@storybook/addon-centered": "5.1.9",
@@ -72,6 +73,7 @@
     "next-offline": "4.0.2",
     "next-transpile-modules": "2.3.1",
     "prettier": "1.18.2",
+    "tailwindcss": "1.0.4",
     "typescript": "3.5.3",
     "webpack": "4.35.3"
   },

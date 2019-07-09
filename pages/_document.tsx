@@ -27,29 +27,6 @@ export default class MyDocument extends Document {
               display: flex;
               flex-direction: column;
             }
-
-            :root {
-              --navbar: #673AB7;
-              --navbarTextColor: #fff;
-              --navbarHeight: 56px;
-              --toolbarHeight: 44px;
-            }
-
-            * {
-              box-sizing: border-box !important;
-            }
-            
-            html {
-              font-size: 10px;
-            }
-            
-            body {
-              font-size: 1.6rem;
-              margin: 0;
-              font-family: system-ui, -apple-system, BlinkMacSystemFont, segoeUI, Roboto,
-                Ubuntu, 'Helvetica Neue', sans-serif;
-              -webkit-tap-highlight-color: transparent;
-            }
           `,
         }}
       />,
