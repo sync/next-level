@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "nextjs-template",
-  "alias": "nextjs-template.now.sh",
+  "name": "next-level",
+  "alias": "next-level.now.sh",
   "public": true,
   "regions": ["all"],
   "builds": [

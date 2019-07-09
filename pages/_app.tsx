@@ -23,7 +23,7 @@ class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
           />
-          <title>Next.js Template</title>
+          <title>Next Level</title>
         </Head>
 
         <Component {...pageProps} />

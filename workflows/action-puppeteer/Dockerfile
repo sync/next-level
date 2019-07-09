@@ -1,6 +1,6 @@
 FROM node:10
 
-LABEL repository="https://github.com/sync/nextjs-template"
+LABEL repository="https://github.com/sync/next-level"
 LABEL homepage="http://github.com/sync"
 LABEL maintainer="sync@github.com>"
 
