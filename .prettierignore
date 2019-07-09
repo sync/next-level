@@ -1,0 +1,9 @@
+node_modules
+*.log
+.cache
+.next
+coverage
+dist
+.DS_Store
+/bundledOutputs/
+storybook-static

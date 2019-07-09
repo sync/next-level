@@ -1,0 +1,96 @@
+{
+  "name": "nextjs-template",
+  "license": "ISC",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.x"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "DISABLE_SERVERLESS=true NODE_ENV=production next start",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,html}\"",
+    "lint": "eslint '**/*.js{,x}' '**/*.ts{,x}'",
+    "typecheck": "tsc --noEmit",
+    "test": "NODE_ENV=test jest",
+    "test-watch": "NODE_ENV=test jest -o --watch",
+    "ci": "yarn typecheck && yarn lint && yarn test",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "snapshot-ui": "build-storybook && percy-storybook --widths=320,1280",
+    "e2e": "DISABLE_SERVERLESS=true yarn build && yarn --cwd packages/e2e jest",
+    "deploy": "scripts/deploy-ci.sh",
+    "deploy:production": "now --token $NOW_TOKEN --target production",
+    "deploy:staging": "now --token $NOW_TOKEN --target staging"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "2.2.1",
+    "next": "9.0.1-canary.0",
+    "react": "16.9.0-alpha.0",
+    "react-dom": "16.9.0-alpha.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.0",
+    "@babel/plugin-proposal-class-properties": "7.5.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.5.2",
+    "@percy-io/percy-storybook": "2.1.0",
+    "@storybook/addon-actions": "5.1.9",
+    "@storybook/addon-centered": "5.1.9",
+    "@storybook/addon-links": "5.1.9",
+    "@storybook/addon-viewport": "5.1.9",
+    "@storybook/addons": "5.1.9",
+    "@storybook/react": "5.1.9",
+    "@testing-library/jest-dom": "4.0.0",
+    "@testing-library/react": "8.0.4",
+    "@types/isomorphic-fetch": "0.0.35",
+    "@types/jest": "24.0.15",
+    "@types/next": "8.0.5",
+    "@types/react": "16.8.23",
+    "@typescript-eslint/eslint-plugin": "1.11.0",
+    "@typescript-eslint/parser": "1.11.0",
+    "@zeit/next-css": "1.0.1",
+    "autoprefixer": "9.6.1",
+    "awesome-typescript-loader": "5.2.1",
+    "babel-loader": "8.0.6",
+    "eslint": "6.0.1",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-jest": "22.7.2",
+    "eslint-plugin-react": "7.14.2",
+    "husky": "3.0.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "24.8.0",
+    "jest-canvas-mock": "2.1.0",
+    "jest-fetch-mock": "2.1.2",
+    "jest-mock-console": "1.0.0",
+    "lint-staged": "9.1.0",
+    "next-offline": "4.0.2",
+    "next-transpile-modules": "2.3.1",
+    "prettier": "1.18.2",
+    "typescript": "3.5.3",
+    "webpack": "4.35.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,css,md,html}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn lint",
+      "post-commit": "git update-index -g"
+    }
+  }
+}
