@@ -1,11 +1,29 @@
 import React from 'react';
-import { render } from '../../utils/testUtils';
+import { GlobalWithFetchMock } from 'jest-fetch-mock';
+import { render, waitForElement } from '../../utils/testUtils';
 import Index from '../../../pages/index';
+import { mockFetchWelcomeOnce } from '../../utils/fetchMocks';
+
+const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
 
 describe('Index', () => {
-  it('renders a welcome text', async () => {
-    const { getByText } = render(<Index welcome={{ name: 'world' }} />);
+  beforeEach(() => {
+    // eslint-disable-next-line global-require
+    customGlobal.fetch = require('jest-fetch-mock');
+    customGlobal.fetchMock = customGlobal.fetch;
+  });
 
-    expect(getByText('Hello world!')).toBeTruthy();
+  afterEach(() => {
+    customGlobal.fetch.resetMocks();
+  });
+
+  it('renders a welcome text', async () => {
+    const welcome = mockFetchWelcomeOnce()!;
+
+    const { getByText } = render(
+      <Index baseUrl={'http://localhost:666/graphql'} />,
+    );
+
+    await waitForElement(() => getByText(`Hello ${welcome.name}!`));
   });
 });
