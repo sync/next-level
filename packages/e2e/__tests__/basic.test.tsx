@@ -13,7 +13,7 @@ describe('Basic integration', () => {
   it(
     'displays a welcome text',
     async () => {
-      await expect(global.page).toMatch('HELLO');
+      await expect(global.page).toMatch('Hello world!');
     },
     timeout,
   );

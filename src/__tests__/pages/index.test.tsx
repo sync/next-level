@@ -6,6 +6,6 @@ describe('Index', () => {
   it('renders a welcome text', async () => {
     const { getByText } = render(<Index />);
 
-    expect(getByText('HELLO')).toBeTruthy();
+    expect(getByText('Hello world!')).toBeTruthy();
   });
 });
