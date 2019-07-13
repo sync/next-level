@@ -1,6 +1,7 @@
 const withTM = require('next-transpile-modules');
 const withOffline = require('next-offline');
 const withCSS = require('@zeit/next-css');
+const { withGraphQLConfig } = require('next-graphql-react/server');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const isProd = process.env.NODE_ENV === 'production';
@@ -72,4 +73,4 @@ const config = {
   pageExtensions: ['jsx', 'js', 'web.js', 'web.jsx', 'ts', 'tsx'],
 };
 
-module.exports = withOffline(withCSS(withTM(config)));
+module.exports = withGraphQLConfig(withOffline(withCSS(withTM(config))));
