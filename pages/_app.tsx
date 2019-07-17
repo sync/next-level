@@ -2,11 +2,16 @@ import '../src/css/tailwind.css';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { Provider, Client } from 'urql';
+import withUrqlClient from '../src/helpers/withUrqlClient';
 
-class MyApp extends App {
+interface Props extends App {
+  urqlClient: Client;
+}
+
+class MyApp extends App<Props> {
   render() {
-    const { Component, pageProps } = this.props;
-
+    const { Component, pageProps, urqlClient } = this.props;
     return (
       <Container>
         <Head>
@@ -16,10 +21,12 @@ class MyApp extends App {
           />
           <title>Next Level</title>
         </Head>
-        <Component {...pageProps} />
+        <Provider value={urqlClient}>
+          <Component {...pageProps} />
+        </Provider>
       </Container>
     );
   }
 }
 
-export default MyApp;
+export default withUrqlClient(MyApp);

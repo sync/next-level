@@ -1,35 +1,48 @@
 import React from 'react';
 import { NextPage } from 'next';
-import fetch from 'isomorphic-fetch';
+import { useQuery } from 'urql';
+import gql from 'graphql-tag';
 import Layout from '../src/components/Layout';
 
-type Props = {
+type QueryResponse = {
   welcome: {
     name: string;
   };
 };
 
-const Index: NextPage<Props> = ({ welcome }) => (
-  <Layout>
-    <h1 className="text-5xl font-bold text-purple-900 flex items-center justify-center h-screen w-screen bg-gray-200">
-      {`Hello ${welcome.name}!`}
-    </h1>
-  </Layout>
-);
+const welcomeQuery = gql`
+  query($name: String!) {
+    welcome(name: $name) {
+      name
+    }
+  }
+`;
 
-Index.getInitialProps = async ({ req }) => {
-  function getBaseUrl(req) {
-    const protocol = req.headers['x-forwarded-proto'] || 'http';
-    const host = req.headers['x-forwarded-host'] || req.headers.host;
-    return `${protocol}://${host}/api`;
+const welcomeQueryVars = {
+  name: 'beautiful',
+};
+
+const Index: NextPage = () => {
+  const [welcomeResult] = useQuery<QueryResponse>({
+    query: welcomeQuery,
+    variables: welcomeQueryVars,
+  });
+
+  if (welcomeResult.error) {
+    return <div>{`Error loading welcome message: ${welcomeResult.error}`}</div>;
+  } else if (welcomeResult.fetching || !welcomeResult.data) {
+    return <div>Loading</div>;
   }
 
-  const baseUrl = req ? getBaseUrl(req) : '/api';
-  const welcome = await fetch(`${baseUrl}/welcome`).then(r => r.json());
+  const { welcome } = welcomeResult.data;
 
-  return {
-    welcome,
-  };
+  return (
+    <Layout>
+      <h1 className="text-5xl font-bold text-purple-900 flex items-center justify-center h-screen w-screen bg-gray-200">
+        {`Hello ${welcome.name}!`}
+      </h1>
+    </Layout>
+  );
 };
 
 export default Index;
