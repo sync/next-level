@@ -38,7 +38,7 @@
     "react": "16.9.0-alpha.0",
     "react-dom": "16.9.0-alpha.0",
     "react-is": "16.8.6",
-    "react-ssr-prepass": "1.0.5",
+    "react-ssr-prepass": "1.0.6",
     "urql": "1.2.0"
   },
   "devDependencies": {
