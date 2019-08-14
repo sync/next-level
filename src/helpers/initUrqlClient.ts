@@ -10,7 +10,6 @@ import fetch from 'isomorphic-fetch';
 
 // Polyfill fetch() on the server
 if (typeof window === 'undefined') {
-  // @ts-ignore
   global.fetch = fetch;
 }
 
