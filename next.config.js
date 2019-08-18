@@ -70,6 +70,10 @@ const config = {
     ],
   },
   pageExtensions: ['jsx', 'js', 'web.js', 'web.jsx', 'ts', 'tsx'],
+  experimental: {
+    modern: true,
+    granularChunks: true,
+  },
 };
 
 module.exports = withOffline(withCSS(withTM(config)));
