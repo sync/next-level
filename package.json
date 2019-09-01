@@ -30,7 +30,7 @@
     "deploy:staging": "now --token $NOW_TOKEN --target staging"
   },
   "dependencies": {
-    "apollo-server-micro": "2.9.2",
+    "apollo-server-micro": "2.9.3",
     "graphql": "14.5.4",
     "graphql-tag": "2.10.1",
     "isomorphic-fetch": "2.2.1",
