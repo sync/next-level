@@ -7,3 +7,8 @@ dist
 .DS_Store
 /bundledOutputs/
 storybook-static
+
+# Cypress
+packages/e2e/cypress.env.json
+packages/e2e/cypress/videos/*
+packages/e2e/cypress/screenshots/*
