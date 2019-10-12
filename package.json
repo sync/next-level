@@ -41,7 +41,7 @@
     "react-dom": "16.10.2",
     "react-is": "16.10.2",
     "react-ssr-prepass": "1.0.7",
-    "urql": "1.5.1"
+    "urql": "1.6.1"
   },
   "devDependencies": {
     "@babel/core": "7.6.4",
