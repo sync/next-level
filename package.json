@@ -80,7 +80,7 @@
     "lint-staged": "9.4.2",
     "next-offline": "4.0.6",
     "next-transpile-modules": "2.3.1",
-    "prettier": "1.18.2",
+    "prettier": "1.19.0",
     "start-server-and-test": "1.10.6",
     "styled-components": "4.4.1",
     "tailwindcss": "1.1.3",
