@@ -52,7 +52,6 @@ const withUrqlClient = (App: any) => {
         />,
       );
 
-      // Extract query data from the Apollo store
       // Extract the SSR query data from urql's SSR cache
       const urqlState = ssrCache.extractData();
 

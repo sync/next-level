@@ -12,7 +12,7 @@ type Props = {
   urqlClient?: Client;
 };
 
-const ApolloProvider: React.FC<Props> = ({
+const UrqlProvider: React.FC<Props> = ({
   urqlClient = createClient({
     url: 'http://localhost:666/api/graphql',
     exchanges: [dedupExchange, cacheExchange, fetchExchange],
@@ -22,4 +22,4 @@ const ApolloProvider: React.FC<Props> = ({
   return <ActualProvider value={urqlClient}>{children}</ActualProvider>;
 };
 
-export default ApolloProvider;
+export default UrqlProvider;
