@@ -79,7 +79,7 @@
     "jest-mock-console": "1.0.0",
     "lint-staged": "9.5.0",
     "next-offline": "4.0.6",
-    "next-transpile-modules": "2.3.1",
+    "next-transpile-modules": "3.3.0",
     "prettier": "1.19.1",
     "start-server-and-test": "1.10.6",
     "styled-components": "4.4.1",
